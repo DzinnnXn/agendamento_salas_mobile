@@ -1,5 +1,8 @@
 import { forwardRef } from 'react';
 import { Text, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { useState } from 'react';
+
 
 import { cn } from '../lib/utils';
 
@@ -9,6 +12,7 @@ export interface InputProps
   labelClasses?: string;
   inputClasses?: string;
 }
+
 const Input = forwardRef<React.ElementRef<typeof TextInput>, InputProps>(
   ({ className, label, labelClasses, inputClasses, ...props }, ref) => (
     <View className={cn('flex flex-col gap-1.5', className)}>
