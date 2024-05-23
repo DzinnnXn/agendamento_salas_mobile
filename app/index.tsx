@@ -4,5 +4,5 @@ import Login from './Telas/login'
 import Cadastro from './Telas/cadastro'
 
 export default function index() {
-  return <Cadastro/>
+  return <Login/>
 }

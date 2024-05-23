@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Status from "@/components/nav";
+import { Link } from 'expo-router';
 import { Input } from '@/components/Input';
 import  Button from '@/components/Button';
 
@@ -19,19 +20,22 @@ const Login = () => {
             <View>
                 <Button label='Enviar'/>
             </View>
+                    <Link href="/Telas/cadastro">
+                        <Text>Cadastre-se</Text>
+                    </Link>
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        margin: 5,
         backgroundColor: '#f5f5f5',
         flex: 1
     },
     inputContainer: {
         marginBottom: 15,
-        marginTop: 15
+        marginTop: 15,
+        padding: 5
     },
     label: {
         fontSize: 16,
