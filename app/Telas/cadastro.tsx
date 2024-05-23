@@ -2,15 +2,26 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Status from "@/components/nav";
 import { Input } from '@/components/Input';
-import  Button from '@/components/Button';
-
-const Login = () => {
+import Button  from '@/components/Button';
+const Cadastro = () => {
     return (
         <ScrollView style={styles.container}>
-            <Status title='Login'/>
+            <Status title='Cadastro'/>
+            <View style={styles.inputContainer}>
+                <Text style={styles.label}>Nome:</Text>
+                <Input placeholder="Insira seu nome:" style={styles.input} />
+            </View>
+            <View style={styles.inputContainer}>
+                <Text style={styles.label}>Sobrenome::</Text>
+                <Input placeholder="Insira seu sobrenome:" style={styles.input} />
+            </View>
             <View style={styles.inputContainer}>
                 <Text style={styles.label}>Email:</Text>
                 <Input placeholder="Insira seu email:" style={styles.input} />
+            </View>
+            <View style={styles.inputContainer}>
+                <Text style={styles.label}>Telefone:</Text>
+                <Input placeholder="Insira seu telefone:" style={styles.input} />
             </View>
             <View style={styles.inputContainer}>
                 <Text style={styles.label}>Senha:</Text>
@@ -25,13 +36,13 @@ const Login = () => {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 5,
         backgroundColor: '#f5f5f5',
         flex: 1
     },
     inputContainer: {
         marginBottom: 15,
-        marginTop: 15
+        marginTop: 15,
+        padding: 5
     },
     label: {
         fontSize: 16,
@@ -46,6 +57,16 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: '#fff',
     },
+    button: {
+        backgroundColor: '#b81414',
+        borderColor: '#b81414',
+        borderWidth: 1,
+        borderRadius: 5,
+        paddingHorizontal: 10
+    },
+    buttonText: {
+        color: '#ffffff'
+    }
 });
 
-export default Login;
+export default Cadastro;
