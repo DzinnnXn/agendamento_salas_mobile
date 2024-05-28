@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Status from "@/components/nav";
 import { Link } from 'expo-router';
 import { Input } from '@/components/Input';
-import  Button from '@/components/Button';
+import Button from '@/components/Button';
 
 const Login = () => {
     return (
@@ -17,12 +17,14 @@ const Login = () => {
                 <Text style={styles.label}>Senha:</Text>
                 <Input placeholder="Insira sua senha:" style={styles.input} />
             </View>
-            <View>
-                <Button label='Enviar'/>
+            <View style={buttonStyles.buttonContainer}>
+                <Button label='Enviar' style={buttonStyles.button} />
             </View>
-                    <Link href="/Telas/cadastro">
-                        <Text>Cadastre-se</Text>
-                    </Link>
+            <View style={cadastroStyles.linkContainer}>
+                <Link href="/Telas/cadastro">
+                    <Text style={cadastroStyles.linkText}>Cadastre-se</Text>
+                </Link>
+            </View>
         </ScrollView>
     );
 };
@@ -49,6 +51,31 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
         backgroundColor: '#fff',
+    },
+});
+
+const cadastroStyles = StyleSheet.create({
+    linkContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    linkText: {
+        fontSize: 16,
+        color: '#e61919',
+        textDecorationLine: 'underline',
+    },
+});
+
+const buttonStyles = StyleSheet.create({
+    buttonContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    button: {
+        backgroundColor: '#e61919',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
     },
 });
 

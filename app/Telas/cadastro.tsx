@@ -48,12 +48,12 @@ const Cadastro = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#f5f5f5',
-        flex: 1,
-        padding: 10
+        flex: 1
     },
     inputContainer: {
         marginBottom: 15,
         marginTop: 15,
+        padding: 8
     },
     label: {
         fontSize: 16,

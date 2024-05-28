@@ -47,8 +47,7 @@ const Agendamento = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
-    padding: 10,
+    backgroundColor: '#f5f5f5'
   },
   scrollViewContent: {
     paddingBottom: 20,
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 3,
     elevation: 2,
+    margin: 10
   },
   salaNome: {
     fontSize: 18,
