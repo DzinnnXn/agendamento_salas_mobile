@@ -1,17 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import Status from "@/components/nav";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import Status from '@/components/nav';
+import AgendarSala from './AgendarSala';
+import Link from '@react-navigation/native';
 
-const Agendamento = ({ navigation }) => {
-  // Dados de exemplo das salas
-  const salas = [
+interface Sala {
+  id: number;
+  nome: string;
+  descricao: string;
+}
+
+type AgendamentoScreenProp = NativeStackNavigationProp<any, any>;
+
+const Agendamento = () => {
+  const navigation = useNavigation<AgendamentoScreenProp>();
+
+  const salas: Sala[] = [
     { id: 1, nome: 'Sala 101', descricao: 'Descrição da Sala 101' },
     { id: 2, nome: 'Sala 102', descricao: 'Descrição da Sala 102' },
     { id: 3, nome: 'Sala 103', descricao: 'Descrição da Sala 103' },
-    // Adicione mais salas conforme necessário
   ];
 
-  const handleAgendamento = (sala) => {
+  const handleAgendamento = (sala: Sala) => {
     navigation.navigate('DescricaoSala', { sala });
   };
 

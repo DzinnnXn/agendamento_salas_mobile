@@ -26,4 +26,3 @@ export default function Status({ title }: Props) {
         </View>
     );
 };
-
