@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import LoginScreen from './Telas/Login';
 import RegisterScreen from './Telas/Cadastro';
-import SalasScreen from './Telas/Salas'; 
+import SalasScreen from './Telas/Salas';
+import AgendamentoScreen from './Telas/Agendamento'; // Import the new Agendamento screen
 import Navbar from '@/components/NavBar';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState('Login');
+  const [selectedRoom, setSelectedRoom] = useState(null); // State to store the selected room
 
   const renderScreen = () => {
     switch (currentScreen) {
@@ -14,8 +16,10 @@ const App: React.FC = () => {
         return <LoginScreen onNavigate={setCurrentScreen} />;
       case 'Register':
         return <RegisterScreen onNavigate={setCurrentScreen} />;
-      case 'Salas': // Add new case for Salas screen
-        return <SalasScreen />;
+      case 'Salas':
+        return <SalasScreen onNavigate={setCurrentScreen} onRoomSelect={setSelectedRoom} />;
+      case 'Agendamento':
+        return <AgendamentoScreen room={selectedRoom} onNavigate={setCurrentScreen} />;
       default:
         return <LoginScreen onNavigate={setCurrentScreen} />;
     }

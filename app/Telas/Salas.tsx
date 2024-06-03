@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
 const salas = [
   { id: '1', nome: 'Sala 101', descricao: 'Sala com projetor e 30 lugares' },
@@ -7,7 +7,17 @@ const salas = [
   // Add more rooms as needed
 ];
 
-const SalasScreen: React.FC = () => {
+interface Props {
+  onNavigate: (screen: string) => void;
+  onRoomSelect: (room: any) => void; // Function to set the selected room
+}
+
+const SalasScreen: React.FC<Props> = ({ onNavigate, onRoomSelect }) => {
+  const handleRoomPress = (room: any) => {
+    onRoomSelect(room);
+    onNavigate('Agendamento');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Salas Disponíveis</Text>
@@ -15,10 +25,12 @@ const SalasScreen: React.FC = () => {
         data={salas}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.roomContainer}>
-            <Text style={styles.roomName}>{item.nome}</Text>
-            <Text style={styles.roomDescription}>{item.descricao}</Text>
-          </View>
+          <TouchableOpacity onPress={() => handleRoomPress(item)}>
+            <View style={styles.roomContainer}>
+              <Text style={styles.roomName}>{item.nome}</Text>
+              <Text style={styles.roomDescription}>{item.descricao}</Text>
+            </View>
+          </TouchableOpacity>
         )}
       />
     </View>
