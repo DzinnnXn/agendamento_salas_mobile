@@ -4,7 +4,7 @@ import Input from '@/components/Input';
 
 interface Props {
   room: any;
-  onNavigate: (screen: string) => void; // Add navigation prop
+  onNavigate: (screen: string) => void; 
 }
 
 const AgendamentoScreen: React.FC<Props> = ({ room, onNavigate }) => {
