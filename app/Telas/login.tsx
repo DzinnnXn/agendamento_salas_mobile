@@ -1,3 +1,4 @@
+// /Telas/Login.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import Input from '@/components/Input';
@@ -12,7 +13,7 @@ const LoginScreen: React.FC<Props> = ({ onNavigate }) => {
       <Text style={styles.title}>Login</Text>
       <Input placeholder="Email" keyboardType="email-address" />
       <Input placeholder="Senha" secureTextEntry />
-      <Button title="Entrar" color="red" onPress={() => {}} />
+      <Button title="Entrar" color="red" onPress={() => onNavigate('Home')} />
       <Text style={styles.link} onPress={() => onNavigate('Register')}>
         Não tem uma conta? Cadastre-se
       </Text>

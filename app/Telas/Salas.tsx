@@ -33,7 +33,7 @@ const SalasScreen: React.FC<Props> = ({ onNavigate, onRoomSelect }) => {
           </TouchableOpacity>
         )}
       />
-      <Text style={styles.link} onPress={() => onNavigate('Login')}>
+      <Text style={styles.link} onPress={() => onNavigate('Home')}>
         Voltar
       </Text>
     </View>

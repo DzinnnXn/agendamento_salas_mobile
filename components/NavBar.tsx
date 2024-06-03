@@ -14,9 +14,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           style={styles.navImage}
         />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => onNavigate('Salas')}>
-        <Text style={styles.navButtonText}>Salas</Text>
-      </TouchableOpacity>
     </View>
   );
 };
