@@ -1,8 +1,8 @@
 // /index.tsx
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import LoginScreen from './Telas/Login';
-import RegisterScreen from './Telas/Cadastro';
+import LoginScreen from './Telas/login';
+import RegisterScreen from './Telas/cadastro';
 import HomeScreen from './Telas/Home';
 import SalasScreen from './Telas/Salas';
 import AgendamentoScreen from './Telas/Agendamento'; // Import the new Agendamento screen
