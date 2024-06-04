@@ -1,11 +1,13 @@
+// /components/NavBar.tsx
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 interface NavbarProps {
   onNavigate: (screen: string) => void;
+  onOpenMenu: () => void; // Add a prop to handle menu opening
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenMenu }) => {
   return (
     <View style={styles.navbar}>
       <TouchableOpacity onPress={() => onNavigate('Login')}>
@@ -13,6 +15,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           source={require('../assets/images/senai.png')} 
           style={styles.navImage}
         />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={onOpenMenu}>
+        <Text style={styles.navButtonText}>Menu</Text>
       </TouchableOpacity>
     </View>
   );

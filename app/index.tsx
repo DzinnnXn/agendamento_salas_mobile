@@ -5,13 +5,15 @@ import LoginScreen from './Telas/login';
 import RegisterScreen from './Telas/cadastro';
 import HomeScreen from './Telas/Home';
 import SalasScreen from './Telas/Salas';
-import SalasReservadasScreen from './Telas/SalasReservadas'; // Import the new SalasReservadas screen
+import SalasReservadasScreen from './Telas/SalasReservadas';
 import AgendamentoScreen from './Telas/Agendamento';
 import Navbar from '@/components/NavBar';
+import Drawer from '@/components/Drawer'; // Import the Drawer component
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState('Login');
   const [selectedRoom, setSelectedRoom] = useState(null); // State to store the selected room
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to manage drawer visibility
 
   const renderScreen = () => {
     switch (currentScreen) {
@@ -23,7 +25,7 @@ const App: React.FC = () => {
         return <HomeScreen onNavigate={setCurrentScreen} />;
       case 'Salas':
         return <SalasScreen onNavigate={setCurrentScreen} onRoomSelect={setSelectedRoom} />;
-      case 'SalasReservadas': // Add new case for SalasReservadas screen
+      case 'SalasReservadas':
         return <SalasReservadasScreen onNavigate={setCurrentScreen} />;
       case 'Agendamento':
         return <AgendamentoScreen room={selectedRoom} onNavigate={setCurrentScreen} />;
@@ -34,8 +36,9 @@ const App: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Navbar onNavigate={setCurrentScreen} />
+      <Navbar onNavigate={setCurrentScreen} onOpenMenu={() => setIsDrawerOpen(true)} />
       {renderScreen()}
+      {isDrawerOpen && <Drawer onClose={() => setIsDrawerOpen(false)} />}
     </View>
   );
 };

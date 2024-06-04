@@ -1,9 +1,8 @@
-// /Telas/Home.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 interface Props {
-  onNavigate: (screen: string) => void; // Function to navigate to other screens
+  onNavigate: (screen: string) => void; 
 }
 
 const HomeScreen: React.FC<Props> = ({ onNavigate }) => {
