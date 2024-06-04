@@ -22,6 +22,7 @@ export default function Button({ label, onPress }: Props){
     buttonText: {
       color: 'white',
       fontSize: 17,
+      paddingBottom: 10
     },
   });
 

@@ -1,15 +1,21 @@
+// /Telas/Home.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 interface Props {
-  onNavigate: (screen: string) => void; 
+  onNavigate: (screen: string) => void; // Function to navigate to other screens
 }
 
 const HomeScreen: React.FC<Props> = ({ onNavigate }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem-vindo!</Text>
-      <Button title="Reservar Salas" color="red" onPress={() => onNavigate('Salas')} />
+      <View style={styles.buttonContainer}>
+        <Button title="Reservar Salas" color="red" onPress={() => onNavigate('Salas')} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Salas Reservadas" color="red" onPress={() => onNavigate('SalasReservadas')} />
+      </View>
       <Text style={styles.link} onPress={() => onNavigate('Login')}>
         Voltar
       </Text>
@@ -31,6 +37,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
     color: 'red',
+  },
+  buttonContainer: {
+    marginBottom: 10, // Add margin to separate the buttons
+    width: '80%', // Optional: adjust width as needed
   },
   link: {
     color: 'red',

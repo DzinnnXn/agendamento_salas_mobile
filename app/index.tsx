@@ -5,7 +5,8 @@ import LoginScreen from './Telas/login';
 import RegisterScreen from './Telas/cadastro';
 import HomeScreen from './Telas/Home';
 import SalasScreen from './Telas/Salas';
-import AgendamentoScreen from './Telas/Agendamento'; // Import the new Agendamento screen
+import SalasReservadasScreen from './Telas/SalasReservadas'; // Import the new SalasReservadas screen
+import AgendamentoScreen from './Telas/Agendamento';
 import Navbar from '@/components/NavBar';
 
 const App: React.FC = () => {
@@ -22,6 +23,8 @@ const App: React.FC = () => {
         return <HomeScreen onNavigate={setCurrentScreen} />;
       case 'Salas':
         return <SalasScreen onNavigate={setCurrentScreen} onRoomSelect={setSelectedRoom} />;
+      case 'SalasReservadas': // Add new case for SalasReservadas screen
+        return <SalasReservadasScreen onNavigate={setCurrentScreen} />;
       case 'Agendamento':
         return <AgendamentoScreen room={selectedRoom} onNavigate={setCurrentScreen} />;
       default:

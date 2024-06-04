@@ -1,35 +1,28 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-const salas = [
-  { id: '1', nome: 'C12', descricao: 'Sala com projetor e 30 lugares' },
-  { id: '2', nome: 'C13', descricao: 'Sala com quadro branco e 25 lugares' },
+const salasReservadas = [
+  { id: '1', nome: 'C01', descricao: 'Sala com projetor e 30 lugares' },
+  { id: '2', nome: 'C02', descricao: 'Sala com quadro branco e 25 lugares' },
+
 ];
 
 interface Props {
-  onNavigate: (screen: string) => void;
-  onRoomSelect: (room: any) => void; // Funcão pra setar a sala selecionada
+  onNavigate: (screen: string) => void; 
 }
 
-const SalasScreen: React.FC<Props> = ({ onNavigate, onRoomSelect }) => {
-  const handleRoomPress = (room: any) => {
-    onRoomSelect(room);
-    onNavigate('Agendamento');
-  };
-
+const SalasReservadasScreen: React.FC<Props> = ({ onNavigate }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Salas Disponíveis</Text>
+      <Text style={styles.title}>Salas Reservadas</Text>
       <FlatList
-        data={salas}
+        data={salasReservadas}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleRoomPress(item)}>
-            <View style={styles.roomContainer}>
-              <Text style={styles.roomName}>{item.nome}</Text>
-              <Text style={styles.roomDescription}>{item.descricao}</Text>
-            </View>
-          </TouchableOpacity>
+          <View style={styles.roomContainer}>
+            <Text style={styles.roomName}>{item.nome}</Text>
+            <Text style={styles.roomDescription}>{item.descricao}</Text>
+          </View>
         )}
       />
       <Text style={styles.link} onPress={() => onNavigate('Home')}>
@@ -75,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SalasScreen;
+export default SalasReservadasScreen;
